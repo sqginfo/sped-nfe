@@ -1,5 +1,5 @@
 {
-    "name": "nfephp-org/sped-nfe",
+    "name": "sqginfo/sped-nfe",
     "type": "library",
     "description": "API para geração e comunicação da NFe e NFCe com as SEFAZ autorizadoras.",
     "keywords": ["nfe","nfce","sped","nfephp"],
