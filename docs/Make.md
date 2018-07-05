@@ -463,14 +463,14 @@ Node com informações de exportação para o item
 ```php
 $std = new stdClass();
 $std->item = 1; //item da NFe
-$std->nDE = '111'; // Indicativo de numero da DetExport
 $std->nDraw = '82828';
 
 $elem = $nfe->tagdetExport($std);
 ```
 
 ### function tagdetExportInd($std):DOMElement
-Node com Grupo sobre exportação indireta
+Node com Grupo sobre exportação indireta, deve ser indicado logo após
+$nfe->tagdetExport($std) pois pertence a essa tag
 
 | Parametro | Tipo | Descrição |
 | :--- | :---: | :--- |
@@ -478,7 +478,6 @@ Node com Grupo sobre exportação indireta
 ```php
 $std = new stdClass();
 $std->item = 1; //item da NFe
-$std->nDE = '111'; // Indicativo de numero da DetExport
 $std->nRE = '123456789012';
 $std->chNFe = '53170924915365000295550550000001951000001952';
 $std->qExport = 1234.123;
@@ -683,6 +682,10 @@ $std->vICMSSTRet;
 $std->vBCFCPSTRet;
 $std->pFCPSTRet;
 $std->vFCPSTRet;
+$std->pRedBCEfet;
+$std->vBCEfet;
+$std->pICMSEfet;
+$std->vICMSEfet;
 
 $elem = $nfe->tagICMS($std);
 ```
@@ -756,10 +759,6 @@ $std->vICMSST = null;
 $std->vBCFCPST = null; //incluso no layout 4.00
 $std->pFCPST = null; //incluso no layout 4.00
 $std->vFCPST = null; //incluso no layout 4.00
-$std->pCredSN = null;
-$std->vCredICMSSN = null;
-$std->pCredSN = null;
-$std->vCredICMSSN = null;
 $std->vBCSTRet = null;
 $std->pST = null;
 $std->vICMSSTRet = null;
@@ -771,6 +770,10 @@ $std->vBC = null;
 $std->pRedBC = null;
 $std->pICMS = null;
 $std->vICMS = null;
+$std->pRedBCEfet = null;
+$std->vBCEfet = null;
+$std->pICMSEfet = null;
+$std->vICMSEfet = null;
 
 $elem = $nfe->tagICMSSN($std);
 ```
