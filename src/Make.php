@@ -1575,13 +1575,9 @@ class Make
         
         $cean = !empty($std->cEAN) ? trim(strtoupper($std->cEAN)) : '';
         $ceantrib = !empty($std->cEANTrib) ? trim(strtoupper($std->cEANTrib)) : '';
-        
-        if (!Gtin::isValid($cean)) {
-            throw new Exception\InvalidArgumentException('GTIN indicado não é válido.');
-        }
-        if (!Gtin::isValid($ceantrib)) {
-            throw new Exception\InvalidArgumentException('GTIN Trib indicado não é válido.');
-        }
+        //throw exception if not is Valid
+        Gtin::isValid($cean);
+        Gtin::isValid($ceantrib);
         
         $identificador = 'I01 <prod> - ';
         $prod = $this->dom->createElement("prod");
@@ -1717,7 +1713,7 @@ class Make
             $prod,
             "vDesc",
             $std->vDesc,
-            false,
+            isset($std->vDesc) ? true : false,
             $identificador . "[item $std->item] Valor do Desconto"
         );
         $this->dom->addChild(
@@ -5920,9 +5916,7 @@ class Make
         $possible = [
             'placa',
             'UF',
-            'RNTC',
-            'vagao',
-            'balsa'
+            'RNTC'
         ];
         $std = $this->equilizeParameters($std, $possible);
 
@@ -5948,26 +5942,54 @@ class Make
             false,
             "Registro Nacional de Transportador de Carga (ANTT) do Veículo Reboque"
         );
-        $this->dom->addChild(
-            $reboque,
-            "vagao",
-            $std->vagao,
-            false,
-            "Identificação do vagão do Veículo Reboque"
-        );
-        $this->dom->addChild(
-            $reboque,
-            "balsa",
-            $std->balsa,
-            false,
-            "Identificação da balsa do Veículo Reboque"
-        );
         $this->dom->appChild(
             $this->transp,
             $reboque,
             'A tag transp deveria ter sido carregada primeiro.'
         );
         return $reboque;
+    }
+    
+    /**
+     * Campo Vagao X25a pai X01
+     * tag NFe/infNFe/transp/vagao (opcional)
+     * @param stdClass $std
+     * @return DOMElement
+     */
+    public function tagvagao(stdClass $std)
+    {
+        $possible = [
+            'vagao'
+        ];
+        $std = $this->equilizeParameters($std, $possible);
+        $this->dom->addChild(
+            $this->transp,
+            "vagao",
+            $std->vagao,
+            false,
+            "Identificação do vagão do Veículo Reboque"
+        );
+    }
+
+    /**
+     * Campo Balsa X25b pai X01
+     * tag NFe/infNFe/transp/balsa (opcional)
+     * @param stdClass $std
+     * @return DOMElement
+     */
+    public function tagbalsa(stdClass $std)
+    {
+        $possible = [
+            'balsa'
+        ];
+        $std = $this->equilizeParameters($std, $possible);
+        $this->dom->addChild(
+            $this->transp,
+            "balsa",
+            $std->balsa,
+            false,
+            "Identificação da balsa do Veículo Reboque"
+        );
     }
 
     /**
