@@ -37,7 +37,7 @@
        <NfeConsultaProtocolo method="nfeConsultaNF" operation="NFeConsulta4" version="4.00">https://nfce.sefaz.am.gov.br/nfce-services/services/NfeConsulta4</NfeConsultaProtocolo>
        <NfeStatusServico method="nfeStatusServicoNF" operation="NFeStatusServico4" version="4.00">https://nfce.sefaz.am.gov.br/nfce-services/services/NfeStatusServico4</NfeStatusServico>
        <RecepcaoEvento method="nfeRecepcaoEvento" operation="NFeRecepcaoEvento" version="1.00">https://nfce.sefaz.am.gov.br/nfce-services/services/RecepcaoEvento4</RecepcaoEvento>
-       <NfeConsultaQR method="QR-CODE" operation="NfeConsultaQR" version="200">https://sistemas.sefaz.am.gov.br/nfceweb/consultarNFCe.jsp</NfeConsultaQR>
+       <NfeConsultaQR method="QR-CODE" operation="NfeConsultaQR" version="200">http://sistemas.sefaz.am.gov.br/nfceweb/consultarNFCe.jsp</NfeConsultaQR>
        <CscNFCe method="admCscNFCe" operation="CscNFCe" version="1.00">https://nfce.sefaz.am.gov.br/nfce-services/services/CscNFCe</CscNFCe>
     </producao>
   </UF>
@@ -68,7 +68,7 @@
        <NfeConsultaProtocolo method="nfeConsultaNF" operation="NFeConsulta4" version="4.00"></NfeConsultaProtocolo>
        <NfeStatusServico method="nfeStatusServicoNF" operation="NFeStatusServico4" version="4.00"></NfeStatusServico>
        <RecepcaoEvento method="nfeRecepcaoEvento" operation="NFeRecepcaoEvento" version="1.00"></RecepcaoEvento>
-       <NfeConsultaQR method="QR-CODE" operation="NfeConsultaQR" version="200">http://nfceh.sefaz.ce.gov.br/pages/ShowNFCe.html</NfeConsultaQR>
+       <NfeConsultaQR method="QR-CODE" operation="NfeConsultaQR" version="200">https://nfceh.sefaz.ce.gov.br/pages/ShowNFCe.html</NfeConsultaQR>
     </homologacao>
     <producao>
        <NfeAutorizacao method="nfeAutorizacaoLote" operation="NFeAutorizacao4" version="4.00"></NfeAutorizacao>
@@ -77,16 +77,16 @@
        <NfeConsultaProtocolo method="nfeConsultaNF" operation="NFeConsulta4" version="4.00"></NfeConsultaProtocolo>
        <NfeStatusServico method="nfeStatusServicoNF" operation="NFeStatusServico4" version="4.00"></NfeStatusServico>
        <RecepcaoEvento method="nfeRecepcaoEvento" operation="NFeRecepcaoEvento" version="1.00"></RecepcaoEvento>
-       <NfeConsultaQR method="QR-CODE" operation="NfeConsultaQR" version="200">http://nfce.sefaz.ce.gov.br/pages/ShowNFCe.html</NfeConsultaQR>
+       <NfeConsultaQR method="QR-CODE" operation="NfeConsultaQR" version="200">https://nfce.sefaz.ce.gov.br/pages/ShowNFCe.html</NfeConsultaQR>
     </producao>
   </UF>
   <UF>
     <sigla>ES</sigla>
     <homologacao>
-      <NfeConsultaQR method="QR-CODE" operation="NfeConsultaQR" version="200">http://homologacao.sefaz.es.gov.br/ConsultaNFCe/qrcode.aspx</NfeConsultaQR>
+      <NfeConsultaQR method="QR-CODE" operation="NfeConsultaQR" version="200">https://homologacao.sefaz.es.gov.br/ConsultaNFCe/qrcode.aspx</NfeConsultaQR>
     </homologacao>
     <producao>
-      <NfeConsultaQR method="QR-CODE" operation="NfeConsultaQR" version="200">http://app.sefaz.es.gov.br/ConsultaNFCe/qrcode.aspx</NfeConsultaQR>
+      <NfeConsultaQR method="QR-CODE" operation="NfeConsultaQR" version="200">https://app.sefaz.es.gov.br/ConsultaNFCe/qrcode.aspx</NfeConsultaQR>
     </producao>
   </UF>
   <UF>
@@ -108,7 +108,7 @@
        <NfeStatusServico method="nfeStatusServicoNF" operation="NFeStatusServico4" version="4.00">https://homolog.sefaz.go.gov.br/nfe/services/NFeStatusServico4</NfeStatusServico>
        <RecepcaoEvento method="nfeRecepcaoEvento" operation="NFeRecepcaoEvento" version="1.00">https://homolog.sefaz.go.gov.br/nfe/services/NFeRecepcaoEvento4</RecepcaoEvento>
        <CscNFCe method="admCscNFCe" operation="CscNFCe" version="1.00">https://homolog.sefaz.go.gov.br/nfe/services/v2/CscNFCe</CscNFCe>
-       <NfeConsultaQR method="QR-CODE" operation="NfeConsultaQR" version="200">https://homolog.sefaz.go.gov.br/nfeweb/sites/nfce/danfeNFCe</NfeConsultaQR>
+       <NfeConsultaQR method="QR-CODE" operation="NfeConsultaQR" version="200">http://homolog.sefaz.go.gov.br/nfeweb/sites/nfce/danfeNFCe</NfeConsultaQR>
     </homologacao>
     <producao>
        <NfeAutorizacao method="nfeAutorizacaoLote" operation="NFeAutorizacao4" version="4.00">https://nfe.sefaz.go.gov.br/nfe/services/NFeAutorizacao4</NfeAutorizacao>
@@ -118,7 +118,7 @@
        <NfeStatusServico method="nfeStatusServicoNF" operation="NFeStatusServico4" version="4.00">https://nfe.sefaz.go.gov.br/nfe/services/NFeStatusServico4</NfeStatusServico>
        <RecepcaoEvento method="nfeRecepcaoEvento" operation="NFeRecepcaoEvento" version="1.00">https://nfe.sefaz.go.gov.br/nfe/services/NFeRecepcaoEvento4</RecepcaoEvento>
        <CscNFCe method="admCscNFCe" operation="CscNFCe" version="1.00">https://nfe.sefaz.go.gov.br/nfe/services/v2/CscNFCe</CscNFCe>
-       <NfeConsultaQR method="QR-CODE" operation="NfeConsultaQR" version="200">https://nfe.sefaz.go.gov.br/nfeweb/sites/nfce/danfeNFCe</NfeConsultaQR>
+       <NfeConsultaQR method="QR-CODE" operation="NfeConsultaQR" version="200">http://nfe.sefaz.go.gov.br/nfeweb/sites/nfce/danfeNFCe</NfeConsultaQR>
     </producao>
   </UF>
   <UF>
@@ -131,6 +131,27 @@
     </producao>
   </UF>
   <UF>
+    <sigla>MG</sigla>
+    <homologacao>
+       <NfeAutorizacao method="nfeAutorizacaoLote" operation="NFeAutorizacao4" version="4.00">https://hnfce.fazenda.mg.gov.br/nfce/services/NFeAutorizacao4</NfeAutorizacao>
+       <NfeRetAutorizacao method="nfeRetAutorizacaoLote" operation="NFeRetAutorizacao4" version="4.00">https://hnfce.fazenda.mg.gov.br/nfce/services/NFeRetAutorizacao4</NfeRetAutorizacao>
+       <NfeInutilizacao method="nfeInutilizacaoNF" operation="NFeInutilizacao4" version="4.00">https://hnfce.fazenda.mg.gov.br/nfce/services/NFeInutilizacao4</NfeInutilizacao>
+       <NfeConsultaProtocolo method="nfeConsultaNF" operation="NFeConsulta4" version="4.00">https://hnfce.fazenda.mg.gov.br/nfce/services/NFeConsultaProtocolo4</NfeConsultaProtocolo>
+       <NfeStatusServico method="nfeStatusServicoNF" operation="NFeStatusServico4" version="4.00">https://hnfce.fazenda.mg.gov.br/nfce/services/NFeStatusServico4</NfeStatusServico>
+       <RecepcaoEvento method="nfeRecepcaoEvento" operation="NFeRecepcaoEvento" version="1.00">https://hnfce.fazenda.mg.gov.br/nfce/services/NFeRecepcaoEvento4</RecepcaoEvento>
+       <NfeConsultaQR method="QR-CODE" operation="NfeConsultaQR" version="200">https://nfce.fazenda.mg.gov.br/portalnfce/sistema/qrcode.xhtml</NfeConsultaQR>
+    </homologacao>
+    <producao>
+       <NfeAutorizacao method="nfeAutorizacaoLote" operation="NFeAutorizacao4" version="4.00">https://nfce.fazenda.mg.gov.br/nfce/services/NFeAutorizacao4</NfeAutorizacao>
+       <NfeRetAutorizacao method="nfeRetAutorizacaoLote" operation="NFeRetAutorizacao4" version="4.00">ttps://hnfce.fazenda.mg.gov.br/nfce/services/NFeRetAutorizacao4</NfeRetAutorizacao>
+       <NfeInutilizacao method="nfeInutilizacaoNF" operation="NFeInutilizacao4" version="4.00">https://nfce.fazenda.mg.gov.br/nfce/services/NFeInutilizacao4</NfeInutilizacao>
+       <NfeConsultaProtocolo method="nfeConsultaNF" operation="NFeConsulta4" version="4.00">https://nfce.fazenda.mg.gov.br/nfce/services/NFeConsultaProtocolo4</NfeConsultaProtocolo>
+       <NfeStatusServico method="nfeStatusServicoNF" operation="NFeStatusServico4" version="4.00">https://nfce.fazenda.mg.gov.br/nfce/services/NFeStatusServico4</NfeStatusServico>
+       <RecepcaoEvento method="nfeRecepcaoEvento" operation="NFeRecepcaoEvento" version="1.00">https://nfce.fazenda.mg.gov.br/nfce/services/NFeRecepcaoEvento4</RecepcaoEvento>
+       <NfeConsultaQR method="QR-CODE" operation="NfeConsultaQR" version="200">https://nfce.fazenda.mg.gov.br/portalnfce/sistema/qrcode.xhtml</NfeConsultaQR>
+    </producao>
+  </UF>
+  <UF>
     <sigla>MT</sigla>
     <homologacao>
        <NfeAutorizacao method="nfeAutorizacaoLote" operation="NFeAutorizacao4" version="4.00">https://homologacao.sefaz.mt.gov.br/nfcews/services/NfeAutorizacao4</NfeAutorizacao>
@@ -138,7 +159,7 @@
        <NfeInutilizacao  method="nfeInutilizacaoNF" operation="NFeInutilizacao4" version="4.00">https://homologacao.sefaz.mt.gov.br/nfcews/services/NfeInutilizacao4</NfeInutilizacao>
        <NfeConsultaProtocolo method="nfeConsultaNF" operation="NFeConsultaProtocolo4" version="4.00">https://homologacao.sefaz.mt.gov.br/nfcews/services/NfeConsulta4</NfeConsultaProtocolo>
        <NfeStatusServico method="nfeStatusServicoNF" operation="NFeStatusServico4" version="4.00">https://homologacao.sefaz.mt.gov.br/nfcews/services/NfeStatusServico4</NfeStatusServico>
-       <RecepcaoEvento  method="nfeRecepcaoEvento" operation="NFeRecepcaoEvento4" version="1.00">https://homologacao.sefaz.mt.gov.br/nfcews/services/RecepcaoEvento4</RecepcaoEvento> 
+       <RecepcaoEvento  method="nfeRecepcaoEvento" operation="NFeRecepcaoEvento4" version="1.00">https://homologacao.sefaz.mt.gov.br/nfcews/services/RecepcaoEvento4</RecepcaoEvento>
        <NfeConsultaQR method="QR-CODE" operation="NfeConsultaQR" version="200">http://homologacao.sefaz.mt.gov.br/nfce/consultanfce</NfeConsultaQR>
     </homologacao>
     <producao>
@@ -147,7 +168,7 @@
        <NfeInutilizacao  method="nfeInutilizacaoNF" operation="NFeInutilizacao4" version="4.00">https://nfce.sefaz.mt.gov.br/nfcews/services/NfeInutilizacao4</NfeInutilizacao>
        <NfeConsultaProtocolo method="nfeConsultaNF" operation="NFeConsultaProtocolo4" version="4.00">https://nfce.sefaz.mt.gov.br/nfcews/services/NfeConsulta4</NfeConsultaProtocolo>
        <NfeStatusServico method="nfeStatusServicoNF" operation="NFeStatusServico4" version="4.00">https://nfce.sefaz.mt.gov.br/nfcews/services/NfeStatusServico4</NfeStatusServico>
-       <RecepcaoEvento  method="nfeRecepcaoEvento" operation="NFeRecepcaoEvento" version="1.00">https://nfce.sefaz.mt.gov.br/nfcews/services/RecepcaoEvento4</RecepcaoEvento>
+       <RecepcaoEvento  method="nfeRecepcaoEvento" operation="NFeRecepcaoEvento4" version="1.00">https://nfce.sefaz.mt.gov.br/nfcews/services/RecepcaoEvento4</RecepcaoEvento>
        <NfeConsultaQR method="QR-CODE" operation="NfeConsultaQR" version="200">http://www.sefaz.mt.gov.br/nfce/consultanfce</NfeConsultaQR>
     </producao>
   </UF>
@@ -163,12 +184,12 @@
        <NfeConsultaQR method="QR-CODE" operation="NfeConsultaQR" version="200">http://www.dfe.ms.gov.br/nfce/qrcode</NfeConsultaQR>
     </homologacao>
     <producao>
-       <NfeAutorizacao method="nfeAutorizacaoLote" operation="NFeAutorizacao4" version="4.00">https://nfce.fazenda.ms.gov.br/ws/NFeAutorizacao4</NfeAutorizacao>
-       <NfeRetAutorizacao method="nfeRetAutorizacaoLote" operation="NFeRetAutorizacao4" version="4.00">https://nfce.fazenda.ms.gov.br/ws/NFeRetAutorizacao4</NfeRetAutorizacao>
-       <NfeInutilizacao  method="nfeInutilizacaoNF" operation="NFeInutilizacao4" version="4.00">https://nfce.fazenda.ms.gov.br/ws/NFeInutilizacao4</NfeInutilizacao>
-       <NfeConsultaProtocolo method="nfeConsultaNF" operation="NFeConsultaProtocolo4" version="4.00">https://nfce.fazenda.ms.gov.br/ws/NFeConsultaProtocolo4</NfeConsultaProtocolo>
-       <NfeStatusServico method="nfeStatusServicoNF" operation="NFeStatusServico4" version="4.00">https://nfce.fazenda.ms.gov.br/ws/NFeStatusServico4</NfeStatusServico>
-       <RecepcaoEvento  method="nfeRecepcaoEvento" operation="NFeRecepcaoEvento" version="1.00">https://nfce.fazenda.ms.gov.br/ws/NFeRecepcaoEvento4</RecepcaoEvento>
+       <NfeAutorizacao method="nfeAutorizacaoLote" operation="NFeAutorizacao4" version="4.00">https://nfce.sefaz.ms.gov.br/ws/NFeAutorizacao4</NfeAutorizacao>
+       <NfeRetAutorizacao method="nfeRetAutorizacaoLote" operation="NFeRetAutorizacao4" version="4.00">https://nfce.sefaz.ms.gov.br/ws/NFeRetAutorizacao4</NfeRetAutorizacao>
+       <NfeInutilizacao  method="nfeInutilizacaoNF" operation="NFeInutilizacao4" version="4.00">https://nfce.sefaz.ms.gov.br/ws/NFeInutilizacao4</NfeInutilizacao>
+       <NfeConsultaProtocolo method="nfeConsultaNF" operation="NFeConsultaProtocolo4" version="4.00">https://nfce.sefaz.ms.gov.br/ws/NFeConsultaProtocolo4</NfeConsultaProtocolo>
+       <NfeStatusServico method="nfeStatusServicoNF" operation="NFeStatusServico4" version="4.00">https://nfce.sefaz.ms.gov.br/ws/NFeStatusServico4</NfeStatusServico>
+       <RecepcaoEvento  method="nfeRecepcaoEvento" operation="NFeRecepcaoEvento" version="1.00">https://nfce.sefaz.ms.gov.br/ws/NFeRecepcaoEvento4</RecepcaoEvento>
        <NfeConsultaQR method="QR-CODE" operation="NfeConsultaQR" version="200">http://www.dfe.ms.gov.br/nfce/qrcode</NfeConsultaQR>
     </producao>
   </UF>
@@ -200,6 +221,15 @@
     </producao>
   </UF>
   <UF>
+    <sigla>PI</sigla>
+    <homologacao>
+      <NfeConsultaQR method="QR-CODE" operation="NfeConsultaQR" version="200">http://webas.sefaz.pi.gov.br/nfceweb-homologacao/consultarNFCe.jsf</NfeConsultaQR>
+    </homologacao>
+    <producao>
+      <NfeConsultaQR method="QR-CODE" operation="NfeConsultaQR" version="200">http://webas.sefaz.pi.gov.br/nfceweb/consultarNFCe.jsf</NfeConsultaQR>
+    </producao>
+  </UF>
+  <UF>
     <sigla>PR</sigla>
     <homologacao>
        <NfeAutorizacao method="nfeAutorizacaoLote" operation="NFeAutorizacao4" version="4.00">https://homologacao.nfce.sefa.pr.gov.br/nfce/NFeAutorizacao4</NfeAutorizacao>
@@ -208,7 +238,7 @@
        <NfeConsultaProtocolo method="nfeConsultaNF" operation="NFeConsulta4" version="4.00">https://homologacao.nfce.sefa.pr.gov.br/nfce/NFeConsultaProtocolo4</NfeConsultaProtocolo>
        <NfeStatusServico method="nfeStatusServicoNF" operation="NFeStatusServico4" version="4.00">https://homologacao.nfce.sefa.pr.gov.br/nfce/NFeStatusServico4</NfeStatusServico>
        <RecepcaoEvento  method="nfeRecepcaoEvento" operation="NFeRecepcaoEvento" version="1.00">https://homologacao.nfce.sefa.pr.gov.br/nfce/NFeRecepcaoEvento4</RecepcaoEvento>
-       <NfeConsultaQR method="QR-CODE" operation="NfeConsultaQR" version="200">http://www.fazenda.pr.gov.br/nfce/qrcode?</NfeConsultaQR>
+       <NfeConsultaQR method="QR-CODE" operation="NfeConsultaQR" version="200">http://www.fazenda.pr.gov.br/nfce/qrcode</NfeConsultaQR>
     </homologacao>
     <producao>
        <NfeAutorizacao method="nfeAutorizacaoLote" operation="NFeAutorizacao4" version="4.00">https://nfce.sefa.pr.gov.br/nfce/NFeAutorizacao4</NfeAutorizacao>
@@ -217,16 +247,16 @@
        <NfeConsultaProtocolo method="nfeConsultaNF" operation="NFeConsultaProtocolo4" version="4.00">https://nfce.sefa.pr.gov.br/nfce/NFeConsultaProtocolo4</NfeConsultaProtocolo>
        <NfeStatusServico method="nfeStatusServicoNF" operation="NFeStatusServico4" version="4.00">https://nfce.sefa.pr.gov.br/nfce/NFeStatusServico4</NfeStatusServico>
        <RecepcaoEvento  method="nfeRecepcaoEvento" operation="NFeRecepcaoEvento" version="1.00">https://nfce.sefa.pr.gov.br/nfce/NFeRecepcaoEvento4</RecepcaoEvento>
-       <NfeConsultaQR method="QR-CODE" operation="NfeConsultaQR" version="200">http://www.fazenda.pr.gov.br/nfce/qrcode?</NfeConsultaQR>
+       <NfeConsultaQR method="QR-CODE" operation="NfeConsultaQR" version="200">http://www.fazenda.pr.gov.br/nfce/qrcode</NfeConsultaQR>
     </producao>
   </UF>
   <UF>
     <sigla>RJ</sigla>
     <homologacao>
-       <NfeConsultaQR method="QR-CODE" operation="NfeConsultaQR" version="200">http://www4.fazenda.rj.gov.br/consultaNFCe/QRCode?</NfeConsultaQR>
+       <NfeConsultaQR method="QR-CODE" operation="NfeConsultaQR" version="200">http://www4.fazenda.rj.gov.br/consultaNFCe/QRCode</NfeConsultaQR>
     </homologacao>
     <producao>
-       <NfeConsultaQR method="QR-CODE" operation="NfeConsultaQR" version="200">http://www4.fazenda.rj.gov.br/consultaNFCe/QRCode?</NfeConsultaQR>
+       <NfeConsultaQR method="QR-CODE" operation="NfeConsultaQR" version="200">http://www4.fazenda.rj.gov.br/consultaNFCe/QRCode</NfeConsultaQR>
     </producao>
   </UF>
   <UF>
@@ -280,10 +310,10 @@
   <UF>
     <sigla>SE</sigla>
     <homologacao>
-      <NfeConsultaQR method="QR-CODE" operation="NfeConsultaQR" version="200">http://www.hom.nfe.se.gov.br/portal/consultarNFCe.jsp</NfeConsultaQR>
+      <NfeConsultaQR method="QR-CODE" operation="NfeConsultaQR" version="200">http://www.hom.nfe.se.gov.br/nfce/qrcode</NfeConsultaQR>
     </homologacao>
     <producao>
-      <NfeConsultaQR method="QR-CODE" operation="NfeConsultaQR" version="200">http://www.nfe.se.gov.br/portal/consultarNFCe.jsp</NfeConsultaQR>
+      <NfeConsultaQR method="QR-CODE" operation="NfeConsultaQR" version="200">http://www.nfce.se.gov.br/nfce/qrcode</NfeConsultaQR>
     </producao>
   </UF>
   <UF>
@@ -303,17 +333,17 @@
        <NfeInutilizacao  method="nfeInutilizacaoNF" operation="NFeInutilizacao4" version="4.00">https://nfce.fazenda.sp.gov.br/ws/NFeInutilizacao4.asmx</NfeInutilizacao>
        <NfeConsultaProtocolo method="nfeConsultaNF" operation="NFeConsultaProtocolo4" version="4.00">https://nfce.fazenda.sp.gov.br/ws/NFeConsultaProtocolo4.asmx</NfeConsultaProtocolo>
        <NfeStatusServico method="nfeStatusServicoNF" operation="NFeStatusServico4" version="4.00">https://nfce.fazenda.sp.gov.br/ws/NFeStatusServico4.asmx</NfeStatusServico>
-       <RecepcaoEvento  method="nfeRecepcaoEvento" operation="NFeRecepcaoEvento" version="1.00">https://nfce.fazenda.sp.gov.br/ws/NFeRecepcaoEvento4.asmx</RecepcaoEvento>
+       <RecepcaoEvento  method="nfeRecepcaoEvento" operation="NFeRecepcaoEvento4" version="1.00">https://nfce.fazenda.sp.gov.br/ws/NFeRecepcaoEvento4.asmx</RecepcaoEvento>
        <NfeConsultaQR method="QR-CODE" operation="NfeConsultaQR" version="200">https://www.nfce.fazenda.sp.gov.br/NFCeConsultaPublica/Paginas/ConsultaQRCode.aspx</NfeConsultaQR>
     </producao>
   </UF>
   <UF>
     <sigla>TO</sigla>
     <homologacao>
-      <NfeConsultaQR method="QR-CODE" operation="NfeConsultaQR" version="200">http://apps.sefaz.to.gov.br/portal-nfcehomologacao/qrcodeNFCe</NfeConsultaQR>
+      <NfeConsultaQR method="QR-CODE" operation="NfeConsultaQR" version="200">http://homologacao.sefaz.to.gov.br/nfce/qrcode</NfeConsultaQR>
     </homologacao>
     <producao>
-      <NfeConsultaQR method="QR-CODE" operation="NfeConsultaQR" version="200">http://apps.sefaz.to.gov.br/portal-nfce/qrcodeNFCe</NfeConsultaQR>
+      <NfeConsultaQR method="QR-CODE" operation="NfeConsultaQR" version="200">http://www.sefaz.to.gov.br/nfce/qrcode</NfeConsultaQR>
     </producao>
   </UF>
   <UF>

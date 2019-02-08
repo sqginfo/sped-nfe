@@ -3,12 +3,11 @@
 namespace NFePHP\NFe\Common;
 
 /**
- * Class to Read and preprocess WS parameters from xml storage
- * file to json encode or stdClass
+ * Reads and preprocesses WS parameters from xml storage file to json encode or stdClass
  *
  * @category  NFePHP
  * @package   NFePHP\NFe\Common\Webservices
- * @copyright NFePHP Copyright (c) 2008-2017
+ * @copyright NFePHP Copyright (c) 2008-2019
  * @license   http://www.gnu.org/licenses/lgpl.txt LGPLv3+
  * @license   https://opensource.org/licenses/MIT MIT
  * @license   http://www.gnu.org/licenses/gpl.txt GPLv3+
@@ -22,7 +21,7 @@ class Webservices
 {
     public $json;
     public $std;
-    
+
     /**
      * Constructor
      * @param string $xml path or xml content from
@@ -32,35 +31,30 @@ class Webservices
     {
         $this->toStd($xml);
     }
-    
+
     /**
-     * Get webservices parameters for specific conditions
-     * the parameters with the authorizers are in a json file in
-     * the storage folder
+     * Gets webservices parameters for specific conditions
      * @param string $sigla
-     * @param string $ambiente "homologacao" ou "producao"
+     * @param int $amb 1-Produção ou 2-Homologação
      * @param int $modelo "55" ou "65"
-     * @return boolean | \stdClass
+     * @return \stdClass
+     * @see storage/autorizadores.json
      */
-    public function get($sigla, $ambiente, $modelo)
+    public function get($sigla, $amb, $modelo)
     {
         $autfile = realpath(__DIR__ . '/../../storage/autorizadores.json');
         $autorizadores = json_decode(file_get_contents($autfile), true);
         if (!key_exists($sigla, $autorizadores[$modelo])) {
-            throw new \RuntimeException(
-                "Não existe o autorizador [$sigla] para os "
-                . "webservices do modelo [$modelo]"
-            );
+            throw new \RuntimeException("Nao existe autorizador [$sigla] para os webservices do modelo [$modelo]");
         }
         $auto = $autorizadores[$modelo][$sigla];
         if (empty($auto) || empty($this->std)) {
-            return false;
+            throw new \RuntimeException('Falhou autorizador, parece vazio');
         }
         if (empty($this->std->$auto)) {
-            throw new \RuntimeException(
-                "Não existem webservices cadastrados para  [$sigla] no modelo [$modelo]"
-            );
+            throw new \RuntimeException("Nao existem webservices cadastrados para [$sigla] no modelo [$modelo]");
         }
+        $ambiente = $amb == 1 ? 'producao' : 'homologacao';
         $svw = $this->std->$auto->$ambiente;
         if ($auto == 'SVRS' || $auto == 'SVAN') {
             $pad = !empty($this->std->$sigla->$ambiente) ? $this->std->$sigla->$ambiente : '';
@@ -92,7 +86,7 @@ class Webservices
         }
         return $this->std;
     }
-    
+
     /**
      * Return WS parameters in json format
      * @return string
@@ -101,7 +95,7 @@ class Webservices
     {
         return (string) $this->json;
     }
-    
+
     /**
      * Read WS xml and convert to json and stdClass
      * @param string $xml
@@ -123,7 +117,7 @@ class Webservices
         $this->json = json_encode($aWS);
         $this->std = json_decode(json_encode($aWS));
     }
-    
+
     /**
      * Extract data from wbservices XML strorage to a array
      * @param SimpleXMLElement $node

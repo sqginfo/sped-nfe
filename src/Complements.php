@@ -122,7 +122,7 @@ class Complements
                 ->item(0)
                 ->nodeValue;
             if (in_array($cStat, ['135', '136', '155'])
-                && $tpEvento == '110111'
+                && $tpEvento == Tools::EVT_CANCELA
                 && $chaveEvento == $chaveNFe
             ) {
                 $proNFe->getElementsByTagName('cStat')
@@ -237,14 +237,14 @@ class Complements
         $ret->preserveWhiteSpace = false;
         $ret->formatOutput = false;
         $ret->loadXML($response);
-        $retProt = $ret->getElementsByTagName('protNFe');
-        if (!isset($retProt)) {
+        $retProt = !empty($ret->getElementsByTagName('protNFe')) ? $ret->getElementsByTagName('protNFe') : null;
+        if ($retProt === null) {
             throw DocumentsException::wrongDocument(3, "&lt;protNFe&gt;");
         }
         $digProt = '000';
         foreach ($retProt as $rp) {
             $infProt = $rp->getElementsByTagName('infProt')->item(0);
-            $cStat  = $infProt->getElementsByTagName('cStat')->item(0)->nodeValue;
+            $cStat = $infProt->getElementsByTagName('cStat')->item(0)->nodeValue;
             $xMotivo = $infProt->getElementsByTagName('xMotivo')->item(0)->nodeValue;
             $dig = $infProt->getElementsByTagName("digVal")->item(0);
             $key = $infProt->getElementsByTagName("chNFe")->item(0)->nodeValue;
@@ -307,7 +307,7 @@ class Complements
         $xMotivo = $retEv->getElementsByTagName('xMotivo')->item(0)->nodeValue;
         $tpEvento = $retEv->getElementsByTagName('tpEvento')->item(0)->nodeValue;
         $cStatValids = ['135', '136'];
-        if ($tpEvento == '110111') {
+        if ($tpEvento == Tools::EVT_CANCELA) {
             $cStatValids[] = '155';
         }
         if (!in_array($cStat, $cStatValids)) {

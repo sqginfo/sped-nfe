@@ -23,7 +23,7 @@ Para montar esse txt algumas regras básicas devem ser obedecidas:
 - Tratando-se de operações com o exterior, uma vez que o campo CNPJ é obrigatório não informar o conteúdo deste campo;
 - No caso das pessoas desobrigadas de inscrição no CNPJ/MF, deverá ser informado o CPF da pessoa, exceto nas operações com o exterior.
 
-## Como testar o TXT ?
+## Como testar o TXT ? [Vide ValidTXT](ValidTXT.md)
 
 O TXT que foi criado pode ser validado, com relação a sua estrutura básica usando a classe ValidTXT::class.
 
@@ -51,6 +51,8 @@ Cada nova NFe inicia com **A|versao|Id|pk_nItem|**, onde versão é a versão do
 ## [Estrutura, **layout 3.10**](txtlayout310.md)
 
 ## [Estrutura, **layout 4.00**](txtlayout400.md)
+
+## [Estrutura, **layout 4.00 SEBRAE**](txtlayout400_sebrae.md) *Em desenvolvimento*
 
 # Mudanças do layout 3.10 para 4.00 (Nota Técnica 2016.002)
 
@@ -153,6 +155,10 @@ NA|vBCUFDest|**vBCFCPUFDest**|pFCPUFDest|pICMSUFDest|pICMSInter|pICMSInterPart|v
 ## LINHA W02 *(inclusos os elementos vFCP,vFCPST,vFCPSTRet)*
 
 W02|vBC|vICMS|vICMSDeson|**vFCP**|vBCST|vST|**vFCPST**|**vFCPSTRet**|vProd|vFrete|vSeg|vDesc|vII|vIPI|vIPIDevol|vPIS|vCOFINS|vOutro|vNF|vTotTrib|
+
+## LINHA O *(removido o campo clEnq)*
+
+O|~~clEnq~~|CNPJProd|cSelo|qSelo|cEnq|
 
 ## LINHA Y *(adicionado o elemento vTroco)*
 

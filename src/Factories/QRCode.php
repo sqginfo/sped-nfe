@@ -8,7 +8,7 @@ namespace NFePHP\NFe\Factories;
  *
  * @category  NFePHP
  * @package   NFePHP\NFe\Factories\QRCode
- * @copyright NFePHP Copyright (c) 2008-2017
+ * @copyright NFePHP Copyright (c) 2008-2019
  * @license   http://www.gnu.org/licenses/lgpl.txt LGPLv3+
  * @license   https://opensource.org/licenses/MIT MIT
  * @license   http://www.gnu.org/licenses/gpl.txt GPLv3+
@@ -49,19 +49,16 @@ class QRCode
         $urlqr = trim($urlqr);
         $urichave = trim($urichave);
         if (empty($token)) {
-            //Falta o CSC no config.json
-            throw DocumentsException::wrongDocument(9);
+            throw DocumentsException::wrongDocument(9); //Falta o CSC no config.json
         }
         if (empty($idToken)) {
-            //Falta o CSCId no config.json
-            throw DocumentsException::wrongDocument(10);
+            throw DocumentsException::wrongDocument(10); //Falta o CSCId no config.json
         }
         if (empty($urlqr)) {
-            //Falta a URL do serviço NfeConsultaQR
-            throw DocumentsException::wrongDocument(11);
+            throw DocumentsException::wrongDocument(11); //Falta a URL do serviço NfeConsultaQR
         }
         if (empty($versao)) {
-            $versao = '100';
+            $versao = '200';
         }
         $nfe = $dom->getElementsByTagName('NFe')->item(0);
         $infNFe = $dom->getElementsByTagName('infNFe')->item(0);
@@ -92,7 +89,6 @@ class QRCode
         $vICMS = $icmsTot->getElementsByTagName('vICMS')->item(0)->nodeValue;
         $digVal = $signedInfo->getElementsByTagName('DigestValue')->item(0)->nodeValue;
         $qrMethod = "get$versao";
-
         $qrcode = self::$qrMethod(
             $chNFe,
             $urlqr,
@@ -107,71 +103,15 @@ class QRCode
             $tpEmis,
             $cDest
         );
-
         $infNFeSupl = $dom->createElement("infNFeSupl");
-        $nodeqr = $infNFeSupl->appendChild($dom->createElement('qrCode'));
-        $nodeqr->appendChild($dom->createCDATASection($qrcode));
-        if (!empty($urichave) && $layoutver > 3.10) {
-            $infNFeSupl->appendChild(
-                $dom->createElement('urlChave', $urichave)
-            );
-        }
+        $infNFeSupl->appendChild($dom->createElement('qrCode', $qrcode));
+        //$nodeqr = $infNFeSupl->appendChild($dom->createElement('qrCode'));
+        //$nodeqr->appendChild($dom->createCDATASection($qrcode));
+        $infNFeSupl->appendChild($dom->createElement('urlChave', $urichave));
         $signature = $dom->getElementsByTagName('Signature')->item(0);
         $nfe->insertBefore($infNFeSupl, $signature);
         $dom->formatOutput = false;
         return $dom->saveXML();
-    }
-
-    /**
-     * Return a QRCode version 1 string to be used in NFCe layout 3.10
-     * @param  string $chNFe
-     * @param  string $url
-     * @param  string $tpAmb
-     * @param  string $dhEmi
-     * @param  string $vNF
-     * @param  string $vICMS
-     * @param  string $digVal
-     * @param  string $token
-     * @param  string $idToken
-     * @param  string $versao
-     * @param  string $tpEmis
-     * @param  string $cDest
-     * @return string
-     */
-    protected static function get100(
-        $chNFe,
-        $url,
-        $tpAmb,
-        $dhEmi,
-        $vNF,
-        $vICMS,
-        $digVal,
-        $token,
-        $idToken,
-        $versao,
-        $tpEmis,
-        $cDest = ''
-    ) {
-        $dhHex = self::str2Hex($dhEmi);
-        $digHex = self::str2Hex($digVal);
-        $seq = '';
-        $seq .= 'chNFe=' . $chNFe;
-        $seq .= '&nVersao=' . $versao;
-        $seq .= '&tpAmb=' . $tpAmb;
-        if ($cDest != '') {
-            $seq .= '&cDest=' . $cDest;
-        }
-        $seq .= '&dhEmi=' . strtolower($dhHex);
-        $seq .= '&vNF=' . $vNF;
-        $seq .= '&vICMS=' . $vICMS;
-        $seq .= '&digVal=' . strtolower($digHex);
-        $seq .= '&cIdToken=' . str_pad($idToken, 6, '0', STR_PAD_LEFT);
-        $hash = sha1($seq.$token);
-        $seq .= '&cHashQRCode='. strtoupper($hash);
-        if (strpos($url, '?') === false) {
-            $url = $url.'?';
-        }
-        return $url.$seq;
     }
 
     /**
@@ -211,10 +151,12 @@ class QRCode
             $url = $url.'?p=';
         }
         if ($tpEmis != 9) {
+            //emissão on-line
             $seq = "$chNFe|$ver|$tpAmb|$cscId";
             $hash = strtoupper(sha1($seq.$csc));
             return "$url$seq|$hash";
         }
+        //emissão off-line
         $dt = new \DateTime($dhEmi);
         $dia = $dt->format('d');
         $valor = number_format($vNF, 2, '.', '');

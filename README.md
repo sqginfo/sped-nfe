@@ -2,28 +2,7 @@
 
 Framework para geração e comunicação das NFe com as SEFAZ autorizadoras, e visa fornecer os meios para gerar, assinar e anviar os dados relativos ao projeto Sped NFe das SEFAZ.
 
-> ### Atende os layouts versão 3.10 e 4.0 da SEFAZ!**
-
-> ### NOVA Versão 4.0 do layout da SEFAZ ( [NT_2016_002_v1.42](http://www.nfe.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=uvfnqOj%20spg=) )
-
->Ambiente SEFAZ de Homologação 4.0 (ambiente de teste das empresas): a partir de 20/11/2017;
-
->*Ambiente SEFAZ de Produção 4.0 : a partir de 04/12/17;*
-
->*Desativação na SEFAZ da versão anterior 3.10: até 02/07/18.*
-
-> ### NOVA VERSÃO 4.0 do layout para NFCe [Manual técnico DANFCE](http://www.nfe.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=/xyXbAFZ71k=)
-
-**Existem alterações e padrões a serem adotados na impressão do DANFCE, deve ser revisto o sped-da**
-
->04/06/2018 - Início da homologação da versão 4.00 do XML para a NFC-e
-
->02/07/2018 – Início da produção da versão 4.00 do XML para a NFC-e – início da concomitância com a versão 1.00 do QR Code (a versão 4.00 do XML da NFC-e aceitará as versões 1.00 e 2.00 do QR Code)
-
-> *01/10/2018 – Desativação da versão 3.10 do XML para a NFC-e*
- 
-> *01/10/2018 – Fim da concomitância com a versão 1.00 do QR Code (a versão 4.00 do XML da NFC-e aceitará somente a versão 2.00 do QR Code)* 
-
+## TODO: A conversão com o PADRÃO SEBRAE ainda está incompleta!!
 
 *Utilize o chat do Gitter para iniciar discussões específicas sobre o desenvolvimento deste pacote.*
 
@@ -51,8 +30,13 @@ Framework para geração e comunicação das NFe com as SEFAZ autorizadoras, e v
 - No caso do CE ainda estamos no aguardo de mais esclarecimentos.(vai ?? não vai ??)
 - E SC não participa.
 
+### NFe com eCPF (emissor pessoa física)
 
+> Os estados de **CE**, **PR** e **SP** **NÃO ACEITAM EMISSÃO com eCPF**
 
+> AM e GO não foi possivel verificar por problemas na comunicação
+
+> Todos os demais estados (aparentemente) já aceitam emissão por eCPF
 
 Este pacote é aderente com os [PSR-1], [PSR-2] e [PSR-4]. Se você observar negligências de conformidade, por favor envie um patch via pull request.
 
@@ -98,7 +82,7 @@ composer require nfephp-org/sped-nfe:dev-master
 
 Para que este pacote possa funcionar são necessários os seguintes requisitos do PHP e outros pacotes dos quais esse depende.
 
-- PHP 5.6 ou PHP 7.x (recomendável PHP 7.x) 
+- PHP 7.x (recomendável PHP 7.2) 
 - ext-curl
 - ext-dom
 - ext-json
@@ -120,6 +104,27 @@ Para que este pacote possa funcionar são necessários os seguintes requisitos d
 > - [posprint](https://github.com/nfephp-org/posprint) Impressão de documentos em impressoras térmicas POS
 
 
+## Como eu faço uso desta API no meu projeto?
+
+Primeiro, esta API faz uso dos recursos mais atuais do PHP para classes e objetos, portanto abaixo vai um exemplo ERRADO de uso:
+```
+require 'sped-nfe/src/Make.php';
+
+$nfe = new Make();
+```
+Portanto, você deve primeiro entender que para usar esta API você precisará trabalhar com NAMESPACES pois esta API trabalha com NAMESPACES.
+
+Agora que você sabe que NAMESPACES é requerido, o uso correto para o exemplo acima seria:
+```
+// VENDOR_DIR = pasta vendor da sua instalação composer
+require VENDOR_DIR . 'autoload.php';
+
+use NFePHP\NFe\Make;
+
+$nfe = new Make();
+```
+
+
 ## Donations
 
 **Estamos em busca de *doadores* e *patrocinadores* para ajudar a financiar parte do desenvolvimento deste pacote e de outros pacotes, aqueles que estiverem interessados por favor entrem em contato com o autor pelo email linux.rlm@gmail.com** 
@@ -135,9 +140,12 @@ Mas também, caso você ache que qualquer informação obtida aqui, lhe foi úti
 <img alt="Doar PagSeguro" src="https://stc.pagseguro.uol.com.br/public/img/botoes/doacoes/120x53-doar.gif"/></a>
 
 
-*Agradecemos a contribuição, dos colegas abaixo indicados, pois sem a ajuda deles o desenvolvimento desse projeto seria muito mais lento e talvez até impossível.*
+## Acknowledgments
 
-> ### Walber Sales - *Patrocinador Gold*
+- A todos os colegas que colaboram de alguma forma com o desenvolvimento continuo desta API.
+
+<a href="https://www.jetbrains.com/?from=NFePHP"><img src="https://github.com/robmachado/sped-nfe/blob/master/docs/images/jetbrains.png" alt="JetBrains" width="80"></a> | A JetBrains pelo fornecimento de uma licença do PHPStorm um dos melhores IDE para desenvolvimento em PHP.
+----- | -----
 
 ## Documentation
 
@@ -180,6 +188,7 @@ Este pacote está diponibilizado sob LGPLv3 ou MIT License (MIT). Leia  [Arquivo
 [ico-version]: https://img.shields.io/packagist/v/nfephp-org/sped-nfe.svg?style=flat-square
 [ico-license]: https://poser.pugx.org/nfephp-org/nfephp/license.svg?style=flat-square
 [ico-gitter]: https://img.shields.io/badge/GITTER-4%20users%20online-green.svg?style=flat-square
+
 
 [link-packagist]: https://packagist.org/packages/nfephp-org/sped-nfe
 [link-travis]: https://travis-ci.org/nfephp-org/sped-nfe

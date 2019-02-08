@@ -3,17 +3,16 @@
 namespace NFePHP\NFe\Factories;
 
 use NFePHP\Common\Strings;
-use NFePHP\NFe\Factories\Contingency;
 use NFePHP\Common\Signer;
 use NFePHP\Common\Keys;
-use NFePHP\Common\UFList;
 use DateTime;
 
 class ContingencyNFe
 {
     /**
-     * Corret NFe fields when in contingency mode
+     * Corrects NFe fields when in contingency mode
      * @param string $xml NFe xml content
+     * @param Contingency $contingency
      * @return string
      */
     public static function adjust($xml, Contingency $contingency)
@@ -41,7 +40,7 @@ class ContingencyNFe
         $emit = $dom->getElementsByTagName('emit')->item(0);
         $cnpj = $emit->getElementsByTagName('CNPJ')->item(0)->nodeValue;
         
-        $motivo = trim(Strings::replaceSpecialsChars($contingency->motive));
+        $motivo = trim(Strings::replaceUnacceptableCharacters($contingency->motive));
         $dt = new DateTime();
         $dt->setTimestamp($contingency->timestamp);
         $ide->getElementsByTagName('tpEmis')
