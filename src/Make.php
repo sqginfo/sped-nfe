@@ -32,318 +32,258 @@ class Make
      * @var array
      */
     public $erros = [];
-
     /**
      * @var string
      */
     public $chNFe;
-
     /**
      * @var string
      */
     public $xml;
-
     /**
      * @var string
      */
     protected $version;
-
     /**
      * @var integer
      */
     protected $mod = 55;
-
     /**
      * @var \NFePHP\Common\DOMImproved
      */
     public $dom;
-
     /**
      * @var integer
      */
     protected $tpAmb = 2;
-
     /**
      * @var DOMElement
      */
     protected $NFe;
-
     /**
      * @var DOMElement
      */
     protected $infNFe;
-
     /**
      * @var DOMElement
      */
     protected $ide;
-
     /**
      * @var DOMElement
      */
     protected $emit;
-
     /**
      * @var DOMElement
      */
     protected $enderEmit;
-
     /**
      * @var DOMElement
      */
     protected $dest;
-
     /**
      * @var DOMElement
      */
     protected $enderDest;
-
     /**
      * @var DOMElement
      */
     protected $retirada;
-
     /**
      * @var DOMElement
      */
     protected $entrega;
-
     /**
      * @var DOMElement
      */
     protected $total;
-
     /**
      * @var DOMElement
      */
     protected $cobr;
-
     /**
      * @var DOMElement
      */
     protected $transp;
-
     /**
      * @var DOMElement
      */
     protected $infAdic;
-
     /**
      * @var DOMElement
      */
     protected $exporta;
-
     /**
      * @var DOMElement
      */
     protected $compra;
-
     /**
      * @var DOMElement
      */
     protected $cana;
-
     /**
      * @var DOMElement
      */
     protected $infNFeSupl;
-
     /**
      * @var array of DOMElements
      */
     protected $aNFref = [];
-
     /**
      * @var array of DOMElements
      */
     protected $aDup = [];
-
     /**
      * @var DOMElement
      */
     protected $pag;
-
     /**
      * @var array of DOMElements
      */
     protected $aDetPag = [];
-
     /**
      * @var array of DOMElements
      */
     protected $aReboque = [];
-
     /**
      * @var array of DOMElements
      */
     protected $aVol = [];
-
     /**
      * @var array of DOMElements
      */
     protected $aAutXML = [];
-
     /**
      * @var array of DOMElements
      */
     protected $aDet = [];
-
     /**
      * @var array of DOMElements
      */
     protected $aProd = [];
-
     /**
      * @var array of DOMElements
      */
     protected $aRastro = [];
-
     /**
      * @var array of DOMElements
      */
     protected $aNVE = [];
-
     /**
      * @var array of DOMElements
      */
     protected $aCest = [];
-
     /**
      * @var array of DOMElements
      */
     protected $aRECOPI = [];
-
     /**
      * @var array of DOMElements
      */
     protected $aDetExport = [];
-
     /**
      * @var array of DOMElements
      */
     protected $aDI = [];
-
     /**
      * @var array of DOMElements
      */
     protected $aAdi = [];
-
     /**
      * @var array of DOMElements
      */
     protected $aVeicProd = [];
-
     /**
      * @var array of DOMElements
      */
     protected $aMed = [];
-
     /**
      * @var array of DOMElements
      */
     protected $aArma = [];
-
     /**
      * @var array of DOMElements
      */
     protected $aComb = [];
-
     /**
      * @var array of DOMElements
      */
     protected $aEncerrante = [];
-
     /**
      * @var array of DOMElements
      */
     protected $aImposto = [];
-
     /**
      * @var array of DOMElements
      */
     protected $aICMS = [];
-
     /**
      * @var array of DOMElements
      */
     protected $aICMSUFDest = [];
-
     /**
      * @var array of DOMElements
      */
     protected $aIPI = [];
-
     /**
      * @var array of DOMElements
      */
     protected $aII = [];
-
     /**
      * @var array of DOMElements
      */
     protected $aISSQN = [];
-
     /**
      * @var array
      */
     protected $aPIS = [];
-
     /**
      * @var array of DOMElements
      */
     protected $aPISST = [];
-
     /**
      * @var array of DOMElements
      */
     protected $aCOFINS = [];
-
     /**
      * @var array of DOMElements
      */
     protected $aCOFINSST = [];
-
     /**
      * @var array of DOMElements
      */
     protected $aImpostoDevol = [];
-
     /**
      * @var array of DOMElements
      */
     protected $aInfAdProd = [];
-
     /**
      * @var array of DOMElements
      */
     protected $aObsCont = [];
-
     /**
      * @var array of DOMElements
      */
     protected $aObsFisco = [];
-
     /**
      * @var array of DOMElements
      */
     protected $aProcRef = [];
-
     /**
      * @var stdClass
      */
     protected $stdTot;
-
     /**
      * @var DOMElement
      */
     protected $infRespTec;
-
     /**
      * @var string
      */
     protected $csrt;
-    
-    protected $replaceAccentedChars;
+    /**
+     * @var boolean
+     */
+    protected $replaceAccentedChars = false;
 
     /**
      * Função construtora cria um objeto DOMDocument
@@ -380,7 +320,11 @@ class Make
         $this->stdTot->vNF = 0;
         $this->stdTot->vTotTrib = 0;
     }
-    
+
+    /**
+     * Set character convertion to ASCII only ou not
+     * @param bool $option
+     */
     public function setOnlyAscii($option = false)
     {
         $this->replaceAccentedChars = $option;
@@ -427,8 +371,8 @@ class Make
 
     /**
      * NFe xml mount method
-       * this function returns TRUE on success or FALSE on error
-       * The xml of the NFe must be retrieved by the getXML() function or
+     * this function returns TRUE on success or FALSE on error
+     * The xml of the NFe must be retrieved by the getXML() function or
      * directly by the public property $xml
      * @return boolean
      */
@@ -582,7 +526,7 @@ class Make
         $this->dom->addChild(
             $ide,
             "natOp",
-            Strings::replaceUnacceptableCharacters(substr(trim($std->natOp), 0, 60)),
+            substr(trim($std->natOp), 0, 60),
             true,
             $identificador . "Descrição da Natureza da Operação"
         );
@@ -718,7 +662,7 @@ class Make
             $this->dom->addChild(
                 $ide,
                 "xJust",
-                Strings::replaceUnacceptableCharacters(substr(trim($std->xJust), 0, 256)),
+                substr(trim($std->xJust), 0, 256),
                 true,
                 $identificador . "Justificativa da entrada em contingência"
             );
@@ -982,21 +926,24 @@ class Make
         $this->dom->addChild(
             $this->emit,
             "xNome",
-            Strings::replaceUnacceptableCharacters(substr(trim($std->xNome), 0, 60)),
+            substr(trim($std->xNome), 0, 60),
             true,
             $identificador . "Razão Social ou Nome do emitente"
         );
         $this->dom->addChild(
             $this->emit,
             "xFant",
-            Strings::replaceUnacceptableCharacters(substr(trim($std->xFant), 0, 60)),
+            substr(trim($std->xFant), 0, 60),
             false,
             $identificador . "Nome fantasia do emitente"
         );
+        if ($std->IE != 'ISENTO') {
+            $std->IE = Strings::onlyNumbers($std->IE);
+        }
         $this->dom->addChild(
             $this->emit,
             "IE",
-            Strings::onlyNumbers($std->IE),
+            $std->IE,
             true,
             $identificador . "Inscrição Estadual do emitente"
         );
@@ -1059,28 +1006,28 @@ class Make
         $this->dom->addChild(
             $this->enderEmit,
             "xLgr",
-            Strings::replaceUnacceptableCharacters(substr(trim($std->xLgr), 0, 60)),
+            substr(trim($std->xLgr), 0, 60),
             true,
             $identificador . "Logradouro do Endereço do emitente"
         );
         $this->dom->addChild(
             $this->enderEmit,
             "nro",
-            Strings::replaceUnacceptableCharacters(substr(trim($std->nro), 0, 60)),
+            substr(trim($std->nro), 0, 60),
             true,
             $identificador . "Número do Endereço do emitente"
         );
         $this->dom->addChild(
             $this->enderEmit,
             "xCpl",
-            Strings::replaceUnacceptableCharacters(substr(trim($std->xCpl), 0, 60)),
+            substr(trim($std->xCpl), 0, 60),
             false,
             $identificador . "Complemento do Endereço do emitente"
         );
         $this->dom->addChild(
             $this->enderEmit,
             "xBairro",
-            Strings::replaceUnacceptableCharacters(substr(trim($std->xBairro), 0, 60)),
+            substr(trim($std->xBairro), 0, 60),
             true,
             $identificador . "Bairro do Endereço do emitente"
         );
@@ -1094,7 +1041,7 @@ class Make
         $this->dom->addChild(
             $this->enderEmit,
             "xMun",
-            Strings::replaceUnacceptableCharacters(substr(trim($std->xMun), 0, 60)),
+            substr(trim($std->xMun), 0, 60),
             true,
             $identificador . "Nome do município do Endereço do emitente"
         );
@@ -1122,7 +1069,7 @@ class Make
         $this->dom->addChild(
             $this->enderEmit,
             "xPais",
-            Strings::replaceUnacceptableCharacters(substr(trim($std->xPais), 0, 60)),
+            substr(trim($std->xPais), 0, 60),
             false,
             $identificador . "Nome do País do Endereço do emitente"
         );
@@ -1206,7 +1153,7 @@ class Make
         $this->dom->addChild(
             $this->dest,
             "xNome",
-            Strings::replaceUnacceptableCharacters(substr(trim($xNome), 0, 60)),
+            substr(trim($xNome), 0, 60),
             $flagNome, //se mod 55 true ou mod 65 false
             $identificador . "Razão Social ou nome do destinatário"
         );
@@ -1243,7 +1190,7 @@ class Make
         $this->dom->addChild(
             $this->dest,
             "email",
-            Strings::replaceUnacceptableCharacters(substr(trim($std->email), 0, 60)),
+            substr(trim($std->email), 0, 60),
             false,
             $identificador . "Email do destinatário"
         );
@@ -1698,7 +1645,7 @@ class Make
         $std = $this->equilizeParameters($std, $possible);
         $infAdProd = $this->dom->createElement(
             "infAdProd",
-            Strings::replaceUnacceptableCharacters(substr(trim($std->infAdProd), 0, 500))
+            substr(trim($std->infAdProd), 0, 500)
         );
         $this->aInfAdProd[$std->item] = $infAdProd;
         return $infAdProd;
@@ -2883,7 +2830,8 @@ class Make
             'pRedBCEfet',
             'vBCEfet',
             'pICMSEfet',
-            'vICMSEfet'
+            'vICMSEfet',
+            'vICMSSubstituto'
         ];
         $std = $this->equilizeParameters($std, $possible);
         //totalização generica
@@ -3445,6 +3393,13 @@ class Make
                 );
                 $this->dom->addChild(
                     $icms,
+                    'vICMSSubstituto',
+                    $std->vICMSSubstituto,
+                    false,
+                    "$identificador [item $std->item] Valor do ICMS próprio do Substituto"
+                );
+                $this->dom->addChild(
+                    $icms,
                     'vICMSSTRet',
                     $std->vICMSSTRet,
                     false,
@@ -3996,7 +3951,13 @@ class Make
             'vICMSSTDest',
             'vBCFCPSTRet',
             'pFCPSTRet',
-            'vFCPSTRet'
+            'vFCPSTRet',
+            'pST',
+            'vICMSSubstituto',
+            'pRedBCEfet',
+            'vBCEfet',
+            'pICMSEfet',
+            'vICMSEfet'
         ];
         $std = $this->equilizeParameters($std, $possible);
         $icmsST = $this->dom->createElement("ICMSST");
@@ -4020,6 +3981,20 @@ class Make
             $std->vBCSTRet,
             true,
             "[item $std->item] Valor do BC do ICMS ST retido na UF remetente"
+        );
+        $this->dom->addChild(
+            $icmsST,
+            'pST',
+            $std->pST,
+            false,
+            "[item $std->item] Alíquota suportada pelo Consumidor Final"
+        );
+        $this->dom->addChild(
+            $icmsST,
+            'vICMSSubstituto',
+            $std->vICMSSubstituto,
+            false,
+            "[item $std->item] Valor do ICMS próprio do Substituto"
         );
         $this->dom->addChild(
             $icmsST,
@@ -4062,6 +4037,34 @@ class Make
             $std->vICMSSTDest,
             true,
             "[item $std->item] Valor do ICMS ST da UF destino"
+        );
+        $this->dom->addChild(
+            $icmsST,
+            'pRedBCEfet',
+            $std->pRedBCEfet,
+            false,
+            "[item $std->item] Percentual de redução da base de cálculo efetiva"
+        );
+        $this->dom->addChild(
+            $icmsST,
+            'vBCEfet',
+            $std->vBCEfet,
+            false,
+            "[item $std->item] Valor da base de cálculo efetiva"
+        );
+        $this->dom->addChild(
+            $icmsST,
+            'pICMSEfet',
+            $std->pICMSEfet,
+            false,
+            "[item $std->item] Alíquota do ICMS efetiva"
+        );
+        $this->dom->addChild(
+            $icmsST,
+            'vICMSEfet',
+            $std->vICMSEfet,
+            false,
+            "[item $std->item] Valor do ICMS efetivo"
         );
         //caso exista a tag aICMS[$std->item] inserir nela caso contrario criar
         if (!empty($this->aICMS[$std->item])) {
@@ -4111,7 +4114,8 @@ class Make
             'pRedBCEfet',
             'vBCEfet',
             'pICMSEfet',
-            'vICMSEfet'
+            'vICMSEfet',
+            'vICMSSubstituto'
         ];
         $std = $this->equilizeParameters($std, $possible);
         //totalizador generico
@@ -4385,6 +4389,13 @@ class Make
                     $std->pST,
                     isset($std->pST) ? true : false,
                     "[item $std->item] Alíquota suportada pelo Consumidor Final"
+                );
+                $this->dom->addChild(
+                    $icmsSN,
+                    'vICMSSubstituto',
+                    !empty($std->vICMSSubstituto) ? number_format($std->vICMSSubstituto, 2, '.', '') : null,
+                    false,
+                    "[item $std->item] Valor do ICMS próprio do Substituto"
                 );
                 $this->dom->addChild(
                     $icmsSN,
@@ -6762,7 +6773,7 @@ class Make
         $this->infNFeSupl = $infNFeSupl;
         return $infNFeSupl;
     }
-    
+
     /**
      * Informações do Responsável técnico ZD01 pai A01
      * tag NFe/infNFe/infRespTec (opcional)
@@ -6780,7 +6791,7 @@ class Make
             'CSRT',
             'idCSRT'
         ];
-        
+
         $std = $this->equilizeParameters($std, $possible);
         $infRespTec = $this->dom->createElement("infRespTec");
         $this->dom->addChild(
@@ -6835,7 +6846,7 @@ class Make
         $this->infRespTec = $infRespTec;
         return $infRespTec;
     }
-   
+
     /**
      * Tag raiz da NFe
      * tag NFe DOMNode
@@ -7322,6 +7333,7 @@ class Make
 
     /**
      * Includes missing or unsupported properties in stdClass
+     * Replace all unsuported chars
      * @param stdClass $std
      * @param array $possible
      * @return stdClass
@@ -7343,7 +7355,7 @@ class Make
         }
         return $std;
     }
-    
+
     /**
      * Calcula hash sha1 retornando Base64Binary
      * @param string $CSRT
@@ -7352,6 +7364,6 @@ class Make
     protected function hashCSRT($CSRT)
     {
         $comb = $CSRT . $this->chNFe;
-        return sha1($comb);
+        return base64_encode(sha1($comb, true));
     }
 }

@@ -172,21 +172,13 @@ class Tools
     protected $typePerson = 'J';
 
     /**
-     * Constructor
-     * load configurations,
-     * load Digital Certificate,
-     * map all paths,
-     * set timezone and
-     * and instanciate Contingency::class
+     * Loads configurations and Digital Certificate, map all paths, set timezone and instanciate Contingency::class
      * @param string $configJson content of config in json format
      * @param Certificate $certificate
-     * @param Contingency $contingency
+     * @param Contingency|null $contingency
      */
-    public function __construct(
-        $configJson,
-        Certificate $certificate,
-        Contingency $contingency = null
-    ) {
+    public function __construct($configJson, Certificate $certificate, Contingency $contingency = null)
+    {
         $this->pathwsfiles = realpath(__DIR__ . '/../../storage') . '/';
         //valid config json string
         $this->config = Config::validate($configJson);
@@ -510,17 +502,15 @@ class Tools
 
     /**
      * Send request message to webservice
-     * @param array $parameters
      * @param string $request
+     * @param array $parameters
      * @return string
      * @throws RuntimeException
      */
     protected function sendRequest($request, array $parameters = [])
     {
-        if ($this->contingency->tpEmis == 5 || $this->contingency->tpEmis == 9) {
-            throw new \RuntimeException(
-                'Em contingencia FSDA ou OFFLINE não é possivel fazer envios à webservices.'
-            );
+        if (in_array($this->contingency->tpEmis, [Contingency::TPEMIS_FSDA, Contingency::TPEMIS_OFFLINE])) {
+            throw new \RuntimeException('Em contingencia FSDA ou OFFLINE não é possivel acessar os webservices.');
         }
         $this->checkSoap();
         return (string) $this->soap->send(
@@ -541,14 +531,16 @@ class Tools
      */
     protected function getXmlUrlPath()
     {
-        $file = $this->pathwsfiles . "wsnfe_" . $this->versao . "_mod55.xml";
+        $file = "wsnfe_" . $this->versao . "_mod55.xml";
         if ($this->modelo == 65) {
             $file = str_replace('55', '65', $file);
         }
-        if (! file_exists($file)) {
+        
+        $path = $this->pathwsfiles . $file;
+        if (! file_exists($path)) {
             return '';
         }
-        return file_get_contents($file);
+        return file_get_contents($path);
     }
 
     /**
